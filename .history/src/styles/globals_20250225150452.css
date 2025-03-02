@@ -1,0 +1,548 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------- Root Variables -------------------- */
+
+:root {
+  --background-primary: rgb(255, 255, 255);
+  --background-secondary: #97887a;
+  --background-secondary-70: rgba(151, 136, 122, 0.7);
+  --background-tertiary: #000000;
+  --foreground-primary: #f8f8ff;
+  --foreground-secondary: #000000;
+  --foreground-tertiary: #97887a;
+}
+
+/* -------------------- Font Imports -------------------- */
+
+@font-face {
+  font-family: "Chamberi Super Display";
+  src: url("/fonts/ChamberiSuperDisplay/ChamberiSuperDisplay-Black.woff2")
+    format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Chamberi Super Display";
+  src: url("/fonts/ChamberiSuperDisplay/ChamberiSuperDisplay-BlackItalic.woff2")
+    format("woff2");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Chamberi Super Display";
+  src: url("/fonts/ChamberiSuperDisplay/ChamberiSuperDisplay-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Chamberi Super Display";
+  src: url("/fonts/ChamberiSuperDisplay/ChamberiSuperDisplay-BoldItalic.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Chamberi Super Display";
+  src: url("/fonts/ChamberiSuperDisplay/ChamberiSuperDisplay-ExtraBold.woff2")
+    format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Chamberi Super Display";
+  src: url("/fonts/ChamberiSuperDisplay/ChamberiSuperDisplay-ExtraBoldItalic.woff2")
+    format("woff2");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Chamberi Super Display";
+  src: url("/fonts/ChamberiSuperDisplay/ChamberiSuperDisplay-ExtraLight.woff2")
+    format("woff2");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Chamberi Super Display";
+  src: url("/fonts/ChamberiSuperDisplay/ChamberiSuperDisplay-ExtraLightItalic.woff2")
+    format("woff2");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Chamberi Super Display";
+  src: url("/fonts/ChamberiSuperDisplay/ChamberiSuperDisplay-Light.woff2")
+    format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Chamberi Super Display";
+  src: url("/fonts/ChamberiSuperDisplay/ChamberiSuperDisplay-LightItalic.woff2")
+    format("woff2");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Chamberi Super Display";
+  src: url("/fonts/ChamberiSuperDisplay/ChamberiSuperDisplay-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Chamberi Super Display";
+  src: url("/fonts/ChamberiSuperDisplay/ChamberiSuperDisplay-SemiBold.woff2")
+    format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Chamberi Super Display";
+  src: url("/fonts/ChamberiSuperDisplay/ChamberiSuperDisplay-SemiBoldItalic.woff2")
+    format("woff2");
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* ------------------------------------------------------------- */
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-ExtraBoldItalic.ttf")
+    format("truetype");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-ExtraLightItalic.ttf")
+    format("truetype");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+/* -------------------- Typography -------------------- */
+
+.display-font {
+  font-family: "Chamberi Super Display", serif;
+}
+
+/* -------------------- Global Typography -------------------- */
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+button {
+  font-family: "Montserrat", sans-serif;
+}
+
+h1,
+h2 {
+  font-family: "Chamberi Super Display", serif;
+}
+
+/* -------------------- Global Styles -------------------- */
+
+html {
+  padding: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  color: var(--foreground-primary);
+  background: var(--background-primary);
+}
+
+main {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Headings */
+
+h1 {
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+h2 {
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+h3 {
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+h4 {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/*  Body Text */
+p {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--text-secondary-color);
+}
+
+/*  Links */
+a {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+/* a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+} */
+
+/* -------------------- Utility Classes -------------------- */
+
+/* Styles for containers */
+
+.__app_overlay_div {
+  @apply absolute top-0 left-0 w-full h-full z-10;
+  background: linear-gradient(
+    to bottom,
+    hsla(0, 0%, 0%, 0.43) 0%,
+    hsla(0, 0%, 0%, 0.429) 8.4%,
+    hsla(0, 0%, 0%, 0.384) 16.8%,
+    hsla(0, 0%, 0%, 0.318) 25.1%,
+    hsla(0, 0%, 0%, 0.308) 33.3%,
+    hsla(0, 0%, 0%, 0.297) 41.3%,
+    hsla(0, 0%, 0%, 0.283) 49%,
+    hsla(0, 0%, 0%, 0.268) 56.5%,
+    hsla(0, 0%, 0%, 0.251) 63.7%,
+    hsla(0, 0%, 0%, 0.233) 70.4%,
+    hsla(0, 0%, 0%, 0.213) 76.7%,
+    hsla(0, 0%, 0%, 0.192) 82.6%,
+    hsla(0, 0%, 0%, 0.17) 87.9%,
+    hsla(0, 0%, 0%, 0.147) 92.6%,
+    hsla(0, 0%, 0%, 0.124) 96.6%,
+    hsla(0, 0%, 0%, 0.096) 100%
+  );
+}
+
+.__app_overlay_div_lateral {
+  @apply absolute top-0 left-0 w-full h-full z-[1];
+  background: linear-gradient(
+    to right,
+    hsla(0, 0%, 0%, 0.7) 0%,
+    hsla(0, 0%, 0%, 0.6) 8.4%,
+    hsla(0, 0%, 0%, 0.5) 16.8%,
+    hsla(0, 0%, 0%, 0.4) 25.1%,
+    hsla(0, 0%, 0%, 0) 100%
+  );
+}
+
+@media (max-width: 767px) {
+  .__app_overlay_div_lateral {
+    background: linear-gradient(
+      to right,
+      hsla(0, 0%, 0%, 0.7) 0%,
+      hsla(0, 0%, 0%, 0.6) 8.4%,
+      hsla(0, 0%, 0%, 0.5) 16.8%,
+      hsla(0, 0%, 0%, 0.5) 25.1%,
+      hsla(0, 0%, 0%, 0.5) 100%
+    );
+  }
+}
+
+/* Buttons */
+
+.--btn-primary {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1em;
+  border: 1px solid var(--foreground-primary);
+  background-color: var(--foreground-primary);
+  color: var(--foreground-secondary);
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  text-align: center;
+  vertical-align: middle;
+  transition: all 0.3s ease-in-out;
+}
+
+.--btn-primary:hover {
+  background: transparent;
+  color: var(--foreground-primary);
+}
+
+.--btn-secondary {
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 1em;
+  border: 1px solid var(--foreground-secondary);
+  background-color: var(--foreground-secondary);
+  color: var(--foreground-primary);
+  padding: 14px 22px;
+  letter-spacing: 1.4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  text-align: center;
+  vertical-align: middle;
+  transition: all 0.1s ease-in-out;
+}
+
+.--btn-secondary:hover {
+  background: transparent;
+  color: var(--foreground-secondary);
+  border: 1px solid var(--foreground-primary);
+  background-color: var(--foreground-primary);
+}
+
+.--btn-tertiary {
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 1em;
+  border: 1px solid var(--foreground-primary);
+  background-color: var(--foreground-primary);
+  color: var(--foreground-secondary);
+  padding: 14px 22px;
+  letter-spacing: 1.4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  text-align: center;
+  vertical-align: middle;
+  transition: all 0.1s ease-in-out;
+}
+
+.--btn-tertiary:hover {
+  background: transparent;
+  color: var(--foreground-primary);
+}
+
+/* Shadows */
+
+.text-shadow-md {
+  text-shadow: 0px 2px 5px #00000033;
+}
+
+.background-image {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+}
+
+@media (max-width: 767px) {
+  .background-image {
+    background-attachment: scroll;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
