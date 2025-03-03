@@ -38,3 +38,4 @@ export { default as SpinnerRound } from "./Spinner/SpinnerRound";
 export { default as FadeOutOverlay } from "./FadeOutOverlay/FadeOutOverlay";
 export { default as ErrorComponent } from "./ErrorComponent/ErrorComponent";
 export { default as DelayedPopup } from "./PopUp/DelayedPopup";
+export { default as GoogleAnalytics } from "./GoogleAnalytics/GoogleAnalytics";
