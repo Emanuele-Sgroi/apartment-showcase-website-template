@@ -21,6 +21,9 @@ const InquirePage = () => {
     useGlobalsContent();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isApiError, setIsApiError] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   if (isInquirePageError || isGlobalsError) {
     return <ErrorComponent />;
@@ -33,9 +36,35 @@ const InquirePage = () => {
     !inquirePageContent ||
     !globalsContent;
 
-  //function to handle submit backend
-  const handleSubmit = () => {
-    setIsModalOpen(true);
+  const handleFormSubmit = async (formData) => {
+    try {
+      setIsSubmitting(true);
+      setIsApiError(false);
+
+      const res = await fetch("/api/fub", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData), // pass everything
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        console.error("Error sending to FUB:", errorData);
+        setIsApiError(true);
+        return;
+      }
+
+      const data = await res.json();
+      console.log("FUB success response:", data);
+      setIsSubmitted(true);
+      // If success => open ThankYouModal
+      setIsModalOpen(true);
+    } catch (err) {
+      console.error("Error submitting form to FUB:", err);
+      setIsApiError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -49,7 +78,7 @@ const InquirePage = () => {
             title={inquirePageContent.heroTitle}
             subTitle={inquirePageContent.heroSubTitle}
           />
-          <div className="w-full max-w-[1260px] min-[2048px]:max-w-[1450px] py-[30px] md:py-[60px] 2xl:py-[90px] min-[2048px]:py-[120px] px-8 max-[500px]:px-6 max-[340px]:px-4">
+          <div className="w-full max-w-[1300px] min-[2048px]:max-w-[1450px] py-[30px] md:py-[60px] 2xl:py-[90px] min-[2048px]:py-[120px] px-8 max-[500px]:px-6 max-[340px]:px-4">
             <div className="w-full flex flex-col md:flex-row items-start md:items-end justify-start gap-6 md:gap-20 border-b border-background-dark pb-4 md:pb-8 ">
               <h2 className="display-font max-[500px]:text-xl text-2xl md:text-[60px] xl:text-[78px] min-[2048px]:text-[100px] leading-[1]">
                 {inquirePageContent.inquireSectionTitle}
@@ -59,7 +88,13 @@ const InquirePage = () => {
               </p>
             </div>
             <div className="w-full flex justify-between max-[820px]:flex-col gap-12 md:gap-16 xl:gap-24 pt-10 sm:pt-12">
-              <InquireForm onSubmit={handleSubmit} />
+              <InquireForm
+                onSubmitForm={handleFormSubmit}
+                isApiError={isApiError}
+                isSubmitting={isSubmitting}
+                setIsSubmitted={setIsSubmitted}
+                isSubmitted={isSubmitted}
+              />
               <InquireContact globalsContent={globalsContent} />
             </div>
           </div>

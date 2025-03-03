@@ -11,8 +11,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { SpinnerRound } from "@/components";
 
-const InquireForm = ({ onSubmit }) => {
+const InquireForm = ({
+  onSubmitForm,
+  isApiError,
+  isSubmitting,
+  isSubmitted,
+  setIsSubmitted,
+}) => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -81,7 +88,7 @@ const InquireForm = ({ onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = {};
-
+    setIsSubmitted(false);
     // Required fields
     newErrors.firstName = validateRequired("First Name", formData.firstName);
     newErrors.lastName = validateRequired("Last Name", formData.lastName);
@@ -180,11 +187,47 @@ const InquireForm = ({ onSubmit }) => {
 
     setErrors(newErrors);
 
+    // If pass..
     if (Object.keys(newErrors).length === 0) {
       console.log("Form submitted!", formData);
-      alert("Form submitted successfully!");
-      // Could clear form data here if desired
-      onSubmit();
+      onSubmitForm(formData);
+      if (isSubmitted) {
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phoneNumber: "",
+
+          // Default selections
+          isAgentOrBroker: "No", // Q1
+          brokerageName: "",
+          isRepresented: "No", // Q2
+          representativeBrokerageFirm: "",
+          interestedInAgent: "",
+
+          interestedIn: "Renting", // Q3
+
+          // Renting Fields
+          rentLayout: "",
+          rentPriceRange: "",
+          rentMoveInDate: "",
+
+          // Buying Fields
+          buyLayout: "",
+          buyPriceRange: "",
+          buyTimeline: "",
+          preApproved: "",
+
+          // Selling Fields
+          sellingAddressStreet: "",
+          sellingAddressCity: "",
+          sellingAddressState: "",
+          sellingAddressZip: "",
+          sellingLayout: "",
+          sellingTimeline: "",
+          sellingPriceGoal: "",
+        });
+      }
     }
   };
 
@@ -1021,16 +1064,32 @@ const InquireForm = ({ onSubmit }) => {
       )}
 
       <div className="w-full flex items-start justify-between max-[318px]:gap-4 gap-1 max-[318px]:flex-col-reverse">
-        <button
-          type="submit"
-          className="--btn-dark !px-8 sm:!px-12 !pt-3 !sm:pb-2  min-[2048px]:!text-lg"
-        >
-          Submit
-        </button>
+        <div className="flex items-center gap-4">
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="--btn-dark disabled:hover:!bg-background-dark
+                  disabled:!cursor-not-allowed disabled:!opacity-70 !px-8 sm:!px-12 !pt-3 !sm:pb-2  min-[2048px]:!text-lg"
+          >
+            Submit
+          </button>
+          {isSubmitting && (
+            <div>
+              <SpinnerRound size={24} color="var(--background-dark)" />
+            </div>
+          )}
+        </div>
         <p className="text-sm sm:text-base min-[2048px]:text-base xl:text-md text-foreground-dark">
           *Required Fields
         </p>
       </div>
+      {isApiError && (
+        <p className="text-xxs sm:text-xs md:text-sm mt-4">
+          <span className="text-red-500 font-semibold">Error:</span> We
+          encountered an issue while submitting your form. Please try again or
+          reach out to us for assistance.
+        </p>
+      )}
     </form>
   );
 };

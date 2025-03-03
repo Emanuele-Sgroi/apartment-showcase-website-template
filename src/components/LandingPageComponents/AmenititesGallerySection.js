@@ -87,7 +87,7 @@ const AmenititesGallerySection = ({ homepageContent }) => {
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
       >
         {/* Swiper Carousel */}
-        <div className="relative w-full flex items-center justify-center mx-auto">
+        <div className="relative w-full flex items-center justify-center ">
           {/* Custom Navigation Arrows */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full lg:w-[90%] min-[2048px]:w-[80%] h-[350px] sm:h-[450px] md:h-[600px] lg:h-[700px] xl:h-[913px] min-[2048px]:h-[1050px] inset-0 flex justify-between items-center px-6 sm:px-12 z-20 pointer-events-none">
             <button className="custom-swiper-prev w-8 sm:w-12 lg:w-20 h-8 sm:h-12 lg:h-20 bg-background-accent/50 hover:bg-background-accent p-1 sm:p-3 rounded-full text-foreground-primary flex items-center justify-center z-20 pointer-events-auto transition-all ease-in-out duration-300">
@@ -98,6 +98,7 @@ const AmenititesGallerySection = ({ homepageContent }) => {
             </button>
           </div>
           {/* Swiper */}
+
           <Swiper
             ref={swiperRef}
             modules={[Navigation, EffectFade, Autoplay]}
