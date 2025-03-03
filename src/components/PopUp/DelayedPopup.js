@@ -6,6 +6,7 @@ import { X } from "lucide-react";
 import { useGlobalsContent } from "@/hooks/useGlobalsContent";
 import { getAssetUrl } from "@/utils/imageUtils";
 import { SpinnerRound } from "@/components";
+import Link from "next/link";
 
 export default function DelayedPopup() {
   // 1) We call the hook at the top, always:
@@ -16,6 +17,7 @@ export default function DelayedPopup() {
   const [showPopup, setShowPopup] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -71,7 +73,8 @@ export default function DelayedPopup() {
   // Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setIsError(false);
+    setIsSubmitting(true);
     try {
       // 1) Send form data to our /api/fub route
       const res = await fetch("/api/fub", {
@@ -88,7 +91,8 @@ export default function DelayedPopup() {
       if (!res.ok) {
         // handle an error from your route
         console.error("Failed to send lead to FUB", await res.json());
-        alert("Something went wrong sending your info, please try again.");
+        setIsError(true);
+        setIsSubmitting(false);
         return;
       }
 
@@ -96,7 +100,8 @@ export default function DelayedPopup() {
       console.log("FUB response data:", data);
 
       // 2) Show success to user
-      alert("Form submitted successfully!");
+      setIsError(false);
+      setIsSubmitting(false);
       setIsSubmitted(true);
 
       // if just once
@@ -105,7 +110,8 @@ export default function DelayedPopup() {
       }
     } catch (error) {
       console.error("Error on form submit:", error);
-      alert("Oops, an error occurred. Please try again.");
+      setIsError(true);
+      setIsSubmitting(false);
     }
   };
 
@@ -182,7 +188,10 @@ export default function DelayedPopup() {
               {popupFormDescription}
             </p>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-3 md:gap-4"
+            >
               {/* First Name */}
               <input
                 type="text"
@@ -191,7 +200,7 @@ export default function DelayedPopup() {
                 value={formData.firstName}
                 onChange={handleChange}
                 className="
-                  border-b border-gray-400 bg-transparent px-2 py-2 
+                  border-b border-gray-400 bg-transparent px-2 py-1 md:py-2 
                   focus:outline-none focus:border-foreground-accent
                 "
                 required
@@ -205,7 +214,7 @@ export default function DelayedPopup() {
                 value={formData.lastName}
                 onChange={handleChange}
                 className="
-                  border-b border-gray-400 bg-transparent px-2 py-2 
+                  border-b border-gray-400 bg-transparent px-2 py-1 md:py-2 
                   focus:outline-none focus:border-foreground-accent
                 "
                 required
@@ -219,7 +228,7 @@ export default function DelayedPopup() {
                 value={formData.email}
                 onChange={handleChange}
                 className="
-                  border-b border-gray-400 bg-transparent px-2 py-2 
+                  border-b border-gray-400 bg-transparent px-2 py-1 md:py-2 
                   focus:outline-none focus:border-foreground-accent
                 "
                 required
@@ -233,7 +242,7 @@ export default function DelayedPopup() {
                 value={formData.number}
                 onChange={handleChange}
                 className="
-                  border-b border-gray-400 bg-transparent px-2 py-2 
+                  border-b border-gray-400 bg-transparent px-2 py-1 md:py-2 
                   focus:outline-none focus:border-foreground-accent
                 "
                 required
@@ -258,6 +267,20 @@ export default function DelayedPopup() {
                   </div>
                 )}
               </div>
+              {isError && (
+                <p className="text-xxs sm:text-xs md:text-sm">
+                  <span className="text-red-500 font-semibold">Error:</span> We
+                  encountered an issue while submitting your form. Please try
+                  again. Alternatively, you can complete the process on our{" "}
+                  <Link
+                    href="/inquire"
+                    className="text-xxs sm:text-xs md:text-sm font-bold underline"
+                  >
+                    Inquire page
+                  </Link>
+                  .
+                </p>
+              )}
             </form>
           </div>
         ) : (

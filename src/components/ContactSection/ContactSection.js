@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ThankYouModal } from "@/components";
+import { ThankYouModal, SpinnerRound } from "@/components";
 
 const ContactSection = ({ title, highlight, globalsContent }) => {
   const [formData, setFormData] = useState({
@@ -16,6 +16,7 @@ const ContactSection = ({ title, highlight, globalsContent }) => {
   const [errors, setErrors] = useState({});
   const [generalError, setGeneralError] = useState(""); // For desktop error message
   const [isModalOpen, setIsModalOpen] = useState(false); // This state controls the "Thank you" modal
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const parts = title?.split(highlight);
 
@@ -38,7 +39,7 @@ const ContactSection = ({ title, highlight, globalsContent }) => {
     /^[\d\s()+-]+$/.test(phone.trim()) && phone.trim().length >= 7;
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     let newErrors = {};
@@ -80,19 +81,53 @@ const ContactSection = ({ title, highlight, globalsContent }) => {
 
     // If no errors, submit the form
     if (Object.keys(newErrors).length === 0) {
-      console.log("Form submitted:", formData);
-      alert("Form submitted successfully!");
+      setIsSubmitting(true);
+      try {
+        // 1) Send form data to our /api/fub route
+        const res = await fetch("/api/fub", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+            phone: formData.number,
+          }),
+        });
 
-      setIsModalOpen(true); // Open "Thank you Modal"
+        if (!res.ok) {
+          // handle an error from your route
+          console.error("Failed to send lead to FUB", await res.json());
+          setGeneralError(
+            "We encountered an issue while submitting your form. Please try again."
+          );
 
-      // Reset form fields
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        number: "",
-      });
-      setGeneralError(""); // Clear error after successful submission
+          setIsSubmitting(false);
+          return;
+        }
+
+        const data = await res.json();
+        console.log("FUB response data:", data);
+
+        // 2) Show success to user
+        setIsSubmitting(false);
+        setIsModalOpen(true); // Open "Thank you Modal"
+        // Reset form fields
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          number: "",
+        });
+        setGeneralError(""); // Clear error after successful submission
+      } catch (error) {
+        console.error("Error on form submit:", error);
+        setGeneralError(
+          "We encountered an issue while submitting your form. Please try again."
+        );
+
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -203,9 +238,16 @@ const ContactSection = ({ title, highlight, globalsContent }) => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="--btn-tertiary md:!flex-1 max-[565px]:w-full sm:!min-w-[230px] md:!min-w-12 h-[40px] xl:!h-[48px] min-[2048px]:!h-[70px] !px-4 !py-3 text-base min-[2048px]:text-lg "
+            disabled={isSubmitting}
+            className="--btn-tertiary disabled:hover:!bg-background-light disabled:hover:!border-background-light disabled:hover:!text-foreground-dark disabled:!cursor-not-allowed md:!flex-1 max-[565px]:w-full sm:!min-w-[230px] md:!min-w-12 h-[40px] xl:!h-[48px] min-[2048px]:!h-[70px] !px-4 !py-3 text-base min-[2048px]:text-lg "
           >
-            Submit
+            {isSubmitting ? (
+              <span>
+                <SpinnerRound size={24} color="var(--foreground-dark)" />
+              </span>
+            ) : (
+              "Submit"
+            )}
           </button>
         </form>
       </div>
