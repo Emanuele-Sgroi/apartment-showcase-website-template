@@ -77,17 +77,17 @@ const AmenititesGallerySection = ({ homepageContent }) => {
   }, []);
 
   return (
-    <section className="w-full bg-background-dark pt-0 pb-[56px] md:pb-[80px] 2xl:pb-[120px] min-[2048px]:pb-[280px]">
+    <section className="w-full bg-background-dark pt-0  pb-[56px] md:pb-[80px] 2xl:pb-[120px] min-[2048px]:pb-[280px]">
       <motion.div
         id="amenities-gallery"
-        className="relative w-full  flex items-center justify-center"
+        className="relative w-full flex items-center justify-center"
         initial={{ y: 50 }}
         whileInView={{ y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
       >
         {/* Swiper Carousel */}
-        <div className="relative w-full flex items-center justify-center ">
+        <div className="relative !w-full flex items-center justify-center ">
           {/* Custom Navigation Arrows */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full lg:w-[90%] min-[2048px]:w-[80%] h-[350px] sm:h-[450px] md:h-[600px] lg:h-[700px] xl:h-[913px] min-[2048px]:h-[1050px] inset-0 flex justify-between items-center px-6 sm:px-12 z-20 pointer-events-none">
             <button className="custom-swiper-prev w-8 sm:w-12 lg:w-20 h-8 sm:h-12 lg:h-20 bg-background-accent/50 hover:bg-background-accent p-1 sm:p-3 rounded-full text-foreground-primary flex items-center justify-center z-20 pointer-events-auto transition-all ease-in-out duration-300">
@@ -115,11 +115,12 @@ const AmenititesGallerySection = ({ homepageContent }) => {
               delay: 10000,
               disableOnInteraction: false,
             }}
+            className="!w-full !flex !justify-center !items-center"
           >
             {slidesRef.map((slide, index) => (
               <SwiperSlide
                 key={index}
-                className="w-full flex items-center justify-center flex-col"
+                className="!w-full !flex !items-center !justify-center flex-col "
               >
                 <div
                   className={` relative w-full lg:w-[90%] min-[2048px]:w-[80%] h-[350px] sm:h-[450px] md:h-[600px] lg:h-[700px] xl:h-[913px] min-[2048px]:h-[1050px]`}

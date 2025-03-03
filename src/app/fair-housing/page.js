@@ -3,9 +3,13 @@ import FairHousingPage from "@/pages/FairHousingPage";
 import { siteMetadata } from "../../../administration/metadata";
 
 export const metadata = {
+  metadataBase: siteMetadata.baseUrl?.startsWith("http")
+    ? new URL(siteMetadata.baseUrl)
+    : undefined,
   title: siteMetadata.fairHousing.title || siteMetadata.defaultTitle,
   description:
     siteMetadata.fairHousing.description || siteMetadata.defaultDescription,
+  keywords: siteMetadata.fairHousing.keywords || siteMetadata.defaultKeywords,
   openGraph: {
     images: [
       {

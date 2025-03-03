@@ -32,11 +32,13 @@
  */
 
 export const siteMetadata = {
+  baseUrl: "http://localhost:3000/",
   siteName: "My Luxury Website",
   defaultTitle: "Luxury Living at Its Finest",
   defaultDescription:
     "Experience the ultimate in luxury living with our upscale properties and world-class amenities.",
   defaultOGImage: "/images/og-default.jpg", // a fallback image for social sharing
+  defaultKeywords: "website, services, technology, solutions",
 
   // Each page in your site:
 
@@ -45,7 +47,8 @@ export const siteMetadata = {
     title: "Home - Luxury Website",
     description:
       "Welcome to our exclusive luxury website. Indulge in modern amenities, refined style, and prime locations.",
-    ogImage: "/images/og-homepage.jpg", // recommended: 1200 × 630 pixels
+    ogImage: "/images/og-default.jpg", // recommended: 1200 × 630 pixels
+    keywords: "website, best website, XYZ, online services, technology",
   },
 
   // ---------------------- RESIDENCES ---------------------------
@@ -53,7 +56,8 @@ export const siteMetadata = {
     title: "Residences - Luxury Website",
     description:
       "Explore our upscale residences, complete with top-tier finishes and breathtaking views.",
-    ogImage: "/images/og-residences.jpg", // recommended: 1200 × 630 pixels
+    ogImage: "/images/og-default.jpg", // recommended: 1200 × 630 pixels
+    keywords: "website, best website, XYZ, online services, technology",
   },
 
   // ---------------------- INQUIRE ---------------------------
@@ -61,7 +65,8 @@ export const siteMetadata = {
     title: "Inquire - Luxury Website",
     description:
       "Review the terms and conditions that govern the use of our website and services.",
-    ogImage: "/images/og-inquire.jpg", // recommended: 1200 × 630 pixels
+    ogImage: "/images/og-default.jpg", // recommended: 1200 × 630 pixels
+    keywords: "website, best website, XYZ, online services, technology",
   },
 
   // ---------------------- 404 - NOT FOUND ---------------------------
@@ -79,7 +84,8 @@ export const siteMetadata = {
     title: "Terms & Conditions - Luxury Website",
     description:
       "Review the terms and conditions that govern the use of our website and services.",
-    ogImage: "/images/og-legals.jpg", // recommended: 1200 × 630 pixels
+    ogImage: "/images/og-default.jpg", // recommended: 1200 × 630 pixels
+    keywords: "website, best website, XYZ, online services, technology",
   },
 
   // --- STANDARDIZED PROCEDURE ---
@@ -87,7 +93,8 @@ export const siteMetadata = {
     title: "Standardized Procedure - Luxury Website",
     description:
       "Review the terms and conditions that govern the use of our website and services.",
-    ogImage: "/images/og-legals.jpg", // recommended: 1200 × 630 pixels
+    ogImage: "/images/og-default.jpg", // recommended: 1200 × 630 pixels
+    keywords: "website, best website, XYZ, online services, technology",
   },
 
   // --- FAIR HOUSING ---
@@ -95,6 +102,7 @@ export const siteMetadata = {
     title: "Fair Housing - Luxury Website",
     description:
       "Review the terms and conditions that govern the use of our website and services.",
-    ogImage: "/images/og-legals.jpg", // recommended: 1200 × 630 pixels
+    ogImage: "/images/og-default.jpg", // recommended: 1200 × 630 pixels
+    keywords: "website, best website, XYZ, online services, technology",
   },
 };

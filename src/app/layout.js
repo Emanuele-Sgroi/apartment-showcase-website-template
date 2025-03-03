@@ -8,8 +8,12 @@ import "swiper/css/effect-fade";
 import { siteMetadata } from "../../administration/metadata";
 
 export const metadata = {
+  metadataBase: siteMetadata.baseUrl?.startsWith("http")
+    ? new URL(siteMetadata.baseUrl)
+    : undefined,
   title: siteMetadata.defaultTitle,
   description: siteMetadata.defaultDescription,
+  keywords: siteMetadata.defaultKeywords,
   openGraph: {
     images: [
       {
