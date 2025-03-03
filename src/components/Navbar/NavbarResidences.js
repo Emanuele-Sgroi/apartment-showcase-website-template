@@ -8,7 +8,7 @@ import { formatPhoneNumber } from "@/utils/fromatPhoneNumber";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Navbar = ({ globalsContent }) => {
+const NavbarResidences = ({ globalsContent }) => {
   const pathname = usePathname(); // Get current route
   const isHomepage = pathname === "/"; // Check if on homepage
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -61,22 +61,22 @@ const Navbar = ({ globalsContent }) => {
     <>
       {/* Desktop Navbar */}
       <nav
-        className={`fixed top-0 left-0 w-fit md:w-full h-[64px] flex items-center justify-center z-[999] 
+        className={`fixed top-0 left-0 w-full h-[64px] flex items-center justify-center z-[999] 
         ${isVisible ? "md:translate-y-0" : "md:-translate-y-full"} 
         ${
           isAtTop
             ? "bg-transparent md:pt-16"
             : hasScrolledPastThreshold
-            ? "md:bg-background-dark-nav md:shadow-md "
-            : "md:bg-background-dark-nav md:shadow-md "
+            ? "bg-background-dark-nav shadow-md "
+            : "bg-background-dark-nav shadow-md "
         }
         transition-all duration-700 ease-in-out`}
       >
-        <div className="w-full flex items-center justify-start md:justify-center lg:justify-between max-md:pl-[9px] max-md:pt-4 md:py-4 md:px-6 lg:px-8 xl:px-12 box-border">
-          {/* 🍔 Mobile Menu Icon */}
+        <div className="w-full flex items-center justify-between py-4 max-[320px]:px-4 px-6 lg:px-8 xl:px-12 box-border">
+          {/*  Mobile Menu Icon */}
           <button
             onClick={() => setIsMenuOpen(true)}
-            className={`md:hidden w-[64px] h-[64px] flex items-center justify-center text-foreground-light rounded-full  z-[1001]  ${
+            className={`min-[265px]:hidden w-[64px] h-[64px] flex items-center justify-center text-foreground-light rounded-full  z-[1001]  ${
               isAtTop
                 ? "bg-transparent"
                 : hasScrolledPastThreshold
@@ -88,55 +88,18 @@ const Navbar = ({ globalsContent }) => {
           </button>
 
           {/* Desktop Links */}
-          <ul className="hidden md:flex items-center gap-6 xl:gap-8">
-            {!isHomepage && (
-              <li>
-                <Link href="/" className="cursor-pointer menu-link">
-                  HOME
-                </Link>
-              </li>
-            )}
-
+          <ul className="max-[264px]:hidden flex items-center max-[320px]:gap-4 gap-6 xl:gap-8">
             <li>
-              <Link href="/residences" className="cursor-pointer menu-link">
-                RESIDENCES
+              <Link href="/" className="cursor-pointer menu-link">
+                HOME
               </Link>
             </li>
-            <li>
-              <ScrollLink
-                to="amenities-section"
-                smooth={true}
-                duration={1000}
-                className="cursor-pointer menu-link"
-              >
-                AMENITIES
-              </ScrollLink>
-            </li>
-            <li>
-              <ScrollLink
-                to="location-section"
-                smooth={true}
-                duration={1000}
-                className="cursor-pointer menu-link"
-              >
-                LOCATION
-              </ScrollLink>
-            </li>
-            <li>
-              <ScrollLink
-                to="availability-section"
-                smooth={true}
-                duration={1200}
-                className="cursor-pointer menu-link"
-              >
-                AVAILABILITY
-              </ScrollLink>
-            </li>
+
             <li>
               <ScrollLink
                 to="contact-section"
                 smooth={true}
-                duration={1600}
+                duration={800}
                 className="cursor-pointer menu-link"
               >
                 CONTACT US
@@ -144,16 +107,32 @@ const Navbar = ({ globalsContent }) => {
             </li>
           </ul>
 
-          {/* Right Links (Phone) - Visible only on Desktop */}
-          <div className="hidden lg:flex">
+          {/* Right Links - Visible only on Desktop */}
+          <div className="flex">
             <ul className="flex items-center gap-6">
-              <li>
+              <li className="max-[450px]:hidden">
                 <a
                   href={`tel:+${globalsContent.phoneNumber}`}
                   className="cursor-pointer menu-link"
                 >
                   {formatPhoneNumber(globalsContent.phoneNumber)}
                 </a>
+              </li>
+              <li className="max-[550px]:hidden">
+                <Link
+                  href={`/inquire`}
+                  className="--btn-tertiary !text-xs !pt-2 !pb-1 !px-2"
+                >
+                  CHECK AVAILABILITY
+                </Link>
+              </li>
+              <li className="min-[551px]:hidden">
+                <Link
+                  href={`/inquire`}
+                  className="--btn-tertiary max-[320px]:!text-xxs !text-xs !pt-2 !pb-1 !px-2"
+                >
+                  INQUIRE
+                </Link>
               </li>
             </ul>
           </div>
@@ -191,19 +170,7 @@ const Navbar = ({ globalsContent }) => {
               {/*  Mobile Links (NO PHONE NUMBER) */}
               <ul className="flex flex-col gap-12 text-md text-foreground-light">
                 {[
-                  isHomepage ? null : { href: "/", label: "HOME" },
-                  { href: "/residences", label: "RESIDENCES" },
-                  {
-                    href: "amenities-section",
-                    label: "AMENITIES",
-                    scroll: true,
-                  },
-                  { href: "location-section", label: "LOCATION", scroll: true },
-                  {
-                    href: "availability-section",
-                    label: "AVAILABILITY",
-                    scroll: true,
-                  },
+                  { href: "/", label: "HOME" },
                   {
                     href: "contact-section",
                     label: "CONTACT US",
@@ -226,7 +193,7 @@ const Navbar = ({ globalsContent }) => {
                         <ScrollLink
                           to={item.href}
                           smooth={true}
-                          duration={1300}
+                          duration={800}
                           onClick={() => setIsMenuOpen(false)}
                         >
                           {item.label}
@@ -250,4 +217,4 @@ const Navbar = ({ globalsContent }) => {
   );
 };
 
-export default Navbar;
+export default NavbarResidences;

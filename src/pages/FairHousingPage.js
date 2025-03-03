@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import {
+  NavbarGeneral,
   Legals,
   ContactSection,
   Loading,
@@ -27,6 +28,7 @@ const FairHousingPage = () => {
       <FadeOutOverlay loading={isLoading} />
       {globalsContent && (
         <>
+          <NavbarGeneral globalsContent={globalsContent} />
           <Legals
             heroTitle="Fair Housing"
             content={globalsContent.fairHousing}

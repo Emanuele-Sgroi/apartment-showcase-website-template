@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import {
+  NavbarResidences,
   ResidencesHeroSection,
   ResidencesSecondSection,
   CarouselTextSection,
@@ -50,6 +51,7 @@ const ResidencesPage = () => {
       <FadeOutOverlay loading={isLoading} />
       {residencesContent && globalsContent && (
         <>
+          <NavbarResidences globalsContent={globalsContent} />
           <ResidencesHeroSection residencesContent={residencesContent} />
           <ResidencesSecondSection residencesContent={residencesContent} />
           <CarouselTextSection

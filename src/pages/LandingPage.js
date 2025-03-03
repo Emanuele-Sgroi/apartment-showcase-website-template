@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import {
+  Navbar,
   HeroSection,
   TextOnlySection,
   FullScreenImageSection,
@@ -38,6 +39,7 @@ const LandingPage = () => {
       <FadeOutOverlay loading={isLoading} />
       {homepageContent && globalsContent && (
         <>
+          <Navbar globalsContent={globalsContent} />
           <HeroSection homepageContent={homepageContent} />
           <TextOnlySection
             id="second-section"
@@ -91,7 +93,7 @@ const LandingPage = () => {
             alt={homepageContent.fullScreenImage2Alt}
           />
           <TextOnlySection
-            id="join-section"
+            id="availability-section"
             smallTitle={homepageContent.inventorySmallTitle}
             title={homepageContent.inventoryTitle}
             description={homepageContent.inventoryDescription}

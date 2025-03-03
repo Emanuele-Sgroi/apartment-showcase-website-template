@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import {
+  NavbarInquire,
   InquireHeroSection,
   InquireForm,
   InquireContact,
@@ -43,6 +44,7 @@ const InquirePage = () => {
       <FadeOutOverlay loading={isLoading} />
       {inquirePageContent && globalsContent && (
         <>
+          <NavbarInquire />
           <InquireHeroSection
             title={inquirePageContent.heroTitle}
             subTitle={inquirePageContent.heroSubTitle}

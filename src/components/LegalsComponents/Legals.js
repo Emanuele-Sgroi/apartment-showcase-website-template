@@ -77,7 +77,7 @@ const Legals = ({ heroTitle, content = {} }) => {
       <div className="w-full bg-background-dark py-[56px] md:py-[80px] 2xl:py-[120px] min-[2048px]:py-[280px] px-8 md:px-[64px] 2xl:px-[120px] min-[2048px]:px-[200px] ">
         <div className="flex flex-col justify-center items-center gap-10 md:gap-12">
           {/* Invisible div for extra space */}
-          <div className="w-full py-1" />
+          <div className="w-full pt-1" />
           {/* Title */}
           <h1 className="display-font text-foreground-light text-[30px] md:text-[36px] lg:text-[41px] min-[2048px]:text-[70px] font-bold leading-[1] text-center uppercase">
             {heroTitle}

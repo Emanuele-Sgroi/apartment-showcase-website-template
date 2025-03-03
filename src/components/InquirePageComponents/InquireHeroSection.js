@@ -10,7 +10,7 @@ const InquireHeroSection = ({ title, subTitle }) => {
     <section className="w-full bg-background-dark py-[56px] md:py-[80px] 2xl:py-[120px] min-[2048px]:py-[280px] px-8 md:px-[64px] 2xl:px-[120px] min-[2048px]:px-[200px]">
       <div className="flex flex-col justify-center items-center gap-10 md:gap-12 ">
         {/* Invisible div for extra space */}
-        <div className="w-full py-4" />
+        <div className="w-full pt-4" />
         {/* Title */}
         <div className="flex flex-col items-center justify-center">
           <motion.h1

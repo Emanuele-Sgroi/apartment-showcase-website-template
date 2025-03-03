@@ -538,55 +538,6 @@ nav {
   }
 }
 
-/*
-.--btn-secondary {
-  font-weight: 600;
-  font-size: 21px;
-  line-height: 1em;
-  border: 1px solid var(--foreground-secondary);
-  background-color: var(--foreground-secondary);
-  color: var(--foreground-primary);
-  padding: 14px 22px;
-  letter-spacing: 1.4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
-  text-align: center;
-  vertical-align: middle;
-  transition: all 0.1s ease-in-out;
-}
-
-.--btn-secondary:hover {
-  background: transparent;
-  color: var(--foreground-secondary);
-  border: 1px solid var(--foreground-primary);
-  background-color: var(--foreground-primary);
-}
-
-.--btn-tertiary {
-  font-weight: 600;
-  font-size: 21px;
-  line-height: 1em;
-  border: 1px solid var(--foreground-primary);
-  background-color: var(--foreground-primary);
-  color: var(--foreground-secondary);
-  padding: 14px 22px;
-  letter-spacing: 1.4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
-  text-align: center;
-  vertical-align: middle;
-  transition: all 0.1s ease-in-out;
-}
-
-.--btn-tertiary:hover {
-  background: transparent;
-  color: var(--foreground-primary);
-} */
-
 /* Inputs*/
 
 /* Prevent autofill styling (Chrome, Safari, Edge) */
@@ -632,4 +583,21 @@ nav {
 
 .luxury-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: #555;
+}
+
+/* Luxury Scrollbar for the entire site */
+::-webkit-scrollbar {
+  width: 8px; /* scrollbar width */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-dark-nav);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--background-accent); /* default thumb color */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--background-accent-50);
 }

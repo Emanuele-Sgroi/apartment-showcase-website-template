@@ -26,6 +26,9 @@ export { default as Legals } from "./LegalsComponents/Legals";
 
 //Exporting Global Components
 export { default as Navbar } from "./Navbar/Navbar";
+export { default as NavbarResidences } from "./Navbar/NavbarResidences";
+export { default as NavbarInquire } from "./Navbar/NavbarInquire";
+export { default as NavbarGeneral } from "./Navbar/NavbarGeneral";
 export { default as Footer } from "./Footer/Footer";
 export { default as ContactSection } from "./ContactSection/ContactSection";
 export { default as ThankYouModal } from "./ThankYouModal/ThankYouModal";
