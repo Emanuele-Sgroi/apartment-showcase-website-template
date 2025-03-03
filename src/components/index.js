@@ -34,5 +34,7 @@ export { default as ContactSection } from "./ContactSection/ContactSection";
 export { default as ThankYouModal } from "./ThankYouModal/ThankYouModal";
 export { default as Loading } from "./Loading/Loading";
 export { default as Spinner } from "./Spinner/Spinner";
+export { default as SpinnerRound } from "./Spinner/SpinnerRound";
 export { default as FadeOutOverlay } from "./FadeOutOverlay/FadeOutOverlay";
 export { default as ErrorComponent } from "./ErrorComponent/ErrorComponent";
+export { default as DelayedPopup } from "./PopUp/DelayedPopup";
