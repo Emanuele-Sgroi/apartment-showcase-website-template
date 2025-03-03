@@ -2,15 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Link as ScrollLink } from "react-scroll";
 import { formatPhoneNumber } from "@/utils/fromatPhoneNumber";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NavbarResidences = ({ globalsContent }) => {
-  const pathname = usePathname(); // Get current route
-  const isHomepage = pathname === "/"; // Check if on homepage
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [isAtTop, setIsAtTop] = useState(true);

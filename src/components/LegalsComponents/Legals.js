@@ -4,7 +4,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 
 const Legals = ({ heroTitle, content = {} }) => {
-  // 1. Define custom rendering options for rich text
+  //  Define custom rendering options for rich text
   const richTextOptions = {
     renderMark: {
       [MARKS.BOLD]: (text) => <strong>{text}</strong>,
@@ -12,7 +12,6 @@ const Legals = ({ heroTitle, content = {} }) => {
       [MARKS.UNDERLINE]: (text) => <u>{text}</u>,
     },
     renderNode: {
-      // Render paragraphs
       [BLOCKS.PARAGRAPH]: (node, children) => (
         <p className="my-4 text-sm sm:text-base md:text-md  min-[2048px]:text-lg leading-relaxed">
           {children}
@@ -43,18 +42,18 @@ const Legals = ({ heroTitle, content = {} }) => {
           {children}
         </h6>
       ),
-      // Render UL
+
       [BLOCKS.UL_LIST]: (node, children) => (
         <ul className="list-disc ml-8 my-4">{children}</ul>
       ),
-      // Render OL
+
       [BLOCKS.OL_LIST]: (node, children) => (
         <ol className="list-decimal ml-8 my-4">{children}</ol>
       ),
       [BLOCKS.LIST_ITEM]: (node, children) => (
         <li className="mb-1">{children}</li>
       ),
-      // Render hyperlinked text
+
       [INLINES.HYPERLINK]: (node, children) => {
         const url = node.data.uri;
         const isExternal = url.startsWith("http");

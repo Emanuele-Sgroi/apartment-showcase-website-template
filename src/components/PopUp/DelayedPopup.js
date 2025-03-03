@@ -9,11 +9,11 @@ import { SpinnerRound } from "@/components";
 import Link from "next/link";
 
 export default function DelayedPopup() {
-  // 1) We call the hook at the top, always:
+  //  We call the hook at the top, always:
   const { globalsContent, isGlobalsError, isGlobalsLoading } =
     useGlobalsContent();
 
-  // 2) Define your local states and effects
+  //  Define your local states and effects
   const [showPopup, setShowPopup] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -36,9 +36,6 @@ export default function DelayedPopup() {
 
   // This effect decides if/when to open the popup
   useEffect(() => {
-    // If the data hasn’t loaded or there's an error/no content,
-    // we might skip, but we can't conditionally skip the HOOK call itself.
-    // We do the logic inside the effect.
     if (!globalsContent || isGlobalsError || isGlobalsLoading) {
       return; // Just do nothing if we can't show the popup
     }
@@ -76,7 +73,7 @@ export default function DelayedPopup() {
     setIsError(false);
     setIsSubmitting(true);
     try {
-      // 1) Send form data to our /api/fub route
+      // Send form data to our /api/fub route
       const res = await fetch("/api/fub", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -99,7 +96,7 @@ export default function DelayedPopup() {
       const data = await res.json();
       console.log("FUB response data:", data);
 
-      // 2) Show success to user
+      //  Show success to user
       setIsError(false);
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -115,7 +112,7 @@ export default function DelayedPopup() {
     }
   };
 
-  // 3) Now do the conditional returns *after* all hooks:
+  // Now do the conditional returns *after* all hooks:
   // If globally loading, error, or no content => no popup
   if (isGlobalsLoading || isGlobalsError || !globalsContent) {
     return null;
@@ -131,7 +128,7 @@ export default function DelayedPopup() {
     return null;
   }
 
-  // 4) Pre-prepare the strings for form and thankYou
+  //  Pre-prepare the strings for form and thankYou
   const {
     popupFormTitle = "",
     popupFormTitleHighlight = "",

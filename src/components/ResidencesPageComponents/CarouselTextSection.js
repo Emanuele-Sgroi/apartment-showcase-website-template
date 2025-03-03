@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
-import Image from "next/image";
 import { getAssetUrl } from "@/utils/imageUtils";
 
 // Reusable Carousel + Text Section

@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { getAssetUrl } from "@/utils/imageUtils";
+import { useState } from "react";
 
 const BackgroundVideo = ({ fallBackImage, videoWebP, videoMp4 }) => {
   const [isMobile, setIsMobile] = useState(false);

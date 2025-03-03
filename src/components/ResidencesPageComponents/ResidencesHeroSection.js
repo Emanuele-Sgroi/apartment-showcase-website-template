@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
 import { ChevronDown } from "lucide-react";
