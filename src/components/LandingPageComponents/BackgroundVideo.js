@@ -6,11 +6,6 @@ import { getAssetUrl } from "@/utils/imageUtils";
 const BackgroundVideo = ({ fallBackImage, videoWebP, videoMp4 }) => {
   const [isMobile, setIsMobile] = useState(false);
 
-  // Extract the first image for the fallback
-  const fallBackImageUrl = fallBackImage[0]
-    ? getAssetUrl(fallBackImage[0])
-    : "";
-
   // Detect if the screen size is mobile ---> CURRENTLY UNUSED
   // useEffect(() => {
   //   const mediaQuery = window.matchMedia("(max-width: 768px)");
@@ -32,7 +27,6 @@ const BackgroundVideo = ({ fallBackImage, videoWebP, videoMp4 }) => {
         loop
         playsInline
         preload="auto"
-        //poster={fallBackImageUrl} // fallback image
         className="w-full h-full object-cover object-center"
         crossOrigin="anonymous"
         disableRemotePlayback

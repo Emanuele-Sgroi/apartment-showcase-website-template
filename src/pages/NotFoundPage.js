@@ -16,7 +16,7 @@ const NotFoundPage = () => {
       <div className="absolute inset-0 bg-black/40" />
       {/* Centered Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-        <h1 className="text-xl sm:text-5xl lg:text-6xl font-bold text-foreground-light mb-6">
+        <h1 className="display-font text-xl sm:text-5xl lg:text-6xl text-foreground-light mb-6">
           404 - Page Not Found
         </h1>
         <p className="text-base sm:text-lg lg:text-xl text-foreground-light mb-8">

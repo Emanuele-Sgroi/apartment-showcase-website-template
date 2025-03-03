@@ -32,7 +32,7 @@ const HeroSection = ({ homepageContent }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-          className="display-font text-foreground-light text-center text-[37px] sm:text-2xl md:text-[55px] lg:text-3xl min-[2048px]:text-[100px]"
+          className="display-font text-foreground-light text-center text-[37px] sm:text-2xl md:text-[55px] lg:text-3xl xl:text-[85px] min-[2048px]:text-[100px]"
         >
           {heroTitle}
         </motion.h1>
@@ -41,7 +41,7 @@ const HeroSection = ({ homepageContent }) => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.3, ease: "easeOut", delay: 0.3 }}
-          className="text-foreground-light font-semibold text-center text-xs md:text-base min-[2048px]:text-lg"
+          className="text-foreground-light font-medium tracking-wider text-center text-sm sm:text-base lg:text-[19px] min-[2048px]:text-lg"
         >
           {heroParagraph}
         </motion.p>

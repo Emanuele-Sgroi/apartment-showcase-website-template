@@ -65,7 +65,7 @@ const NavbarGeneral = ({ globalsContent }) => {
         ${isVisible ? "md:translate-y-0" : "md:-translate-y-full"} 
         ${
           isAtTop
-            ? "bg-transparent md:pt-16"
+            ? "bg-transparent "
             : hasScrolledPastThreshold
             ? "bg-background-dark-nav shadow-md "
             : "bg-background-dark-nav shadow-md "

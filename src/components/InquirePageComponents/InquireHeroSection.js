@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const InquireHeroSection = ({ title, subTitle }) => {
   return (
-    <section className="w-full bg-background-dark py-[56px] md:py-[80px] 2xl:py-[120px] min-[2048px]:py-[280px] px-8 md:px-[64px] 2xl:px-[120px] min-[2048px]:px-[200px]">
+    <section className="w-full bg-background-dark py-[30px] md:py-[90px] min-[2048px]:py-[200px] px-8 md:px-[64px] 2xl:px-[120px] min-[2048px]:px-[200px]">
       <div className="flex flex-col justify-center items-center gap-10 md:gap-12 ">
         {/* Invisible div for extra space */}
         <div className="w-full pt-4" />
@@ -18,7 +18,7 @@ const InquireHeroSection = ({ title, subTitle }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="display-font text-foreground-light text-[30px] md:text-[36px] lg:text-[41px] min-[2048px]:text-[70px] font-bold leading-[1] text-center "
+            className="display-font text-foreground-light text-[30px] md:text-[36px] lg:text-[70px] min-[2048px]:text-[70px] leading-[1] text-center "
           >
             {title}
           </motion.h1>

@@ -23,7 +23,7 @@ const ResidencesLastSection = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="text-foreground-accent text-base md:text-lg tracking-wide text-center"
+            className="text-foreground-accent text-sm md:text-base lg:text-lg tracking-wide text-center"
           >
             {smallTitle}
           </motion.h5>
@@ -36,7 +36,7 @@ const ResidencesLastSection = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="display-font text-foreground-dark text-[44px] md:text-[55px] lg:text-[65px] xl:text-[78px]  min-[2048px]:text-[150px] font-bold leading-snug text-center "
+            className="display-font text-foreground-dark text-[44px] md:text-[55px] lg:text-[65px] xl:text-[78px]  min-[2048px]:text-[150px] leading-snug text-center "
           >
             {title}
           </motion.h2>

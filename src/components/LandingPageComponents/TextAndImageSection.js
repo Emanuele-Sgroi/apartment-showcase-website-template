@@ -51,7 +51,7 @@ const TextAndImageSection = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="text-foreground-accent text-xs md:text-md min-[2048px]:text-lg tracking-wide"
+                className="text-foreground-accent text-sm md:text-base lg:text-lg min-[2048px]:text-lg tracking-wide"
               >
                 {smallTitle}
               </motion.h5>
@@ -66,7 +66,7 @@ const TextAndImageSection = ({
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                  className="display-font text-center md:text-left text-foreground-dark text-[44px] md:text-[55px] lg:text-[86px] 2xl:text-[100px] min-[2048px]:text-[150px] font-bold leading-[1] "
+                  className="display-font text-center md:text-left text-foreground-dark text-[44px] md:text-[55px] lg:text-[86px] 2xl:text-[100px] min-[2048px]:text-[150px] leading-[1] "
                 >
                   {word.trim()}
                 </motion.h2>

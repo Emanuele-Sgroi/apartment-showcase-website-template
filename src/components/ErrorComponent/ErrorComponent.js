@@ -16,7 +16,7 @@ const ErrorComponent = () => {
         <h5 className="tex-center text-lg font-semibold text-red-500">
           WE APOLOGIZE
         </h5>
-        <h1 className="text-xl lg:text-6xl font-bold text-foreground-light my-6">
+        <h1 className="display-font text-xl lg:text-6xl  text-foreground-light my-6">
           Our Website Is Temporarily Unavailable
         </h1>
         <p className="text-base sm:text-lg text-foreground-light max-w-[600px] mb-8">

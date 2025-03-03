@@ -108,7 +108,7 @@ const ContactSection = ({ title, highlight, globalsContent }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          className="display-font text-foreground-light text-xl sm:text-2xl lg:text-[53px] xl:text-3xl min-[2048px]:text-[100px] font-bold leading-[1] text-center"
+          className="display-font text-foreground-light text-xl sm:text-2xl lg:text-[53px] xl:text-3xl min-[2048px]:text-[100px] leading-[1] text-center"
         >
           {parts[0]}
           <span className="text-foreground-accent">{highlight}</span>
