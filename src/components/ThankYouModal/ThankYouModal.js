@@ -28,7 +28,7 @@ const ThankYouModal = ({
         {/* Left Section (Text) */}
         <div className="w-full md:w-1/2 md:p-10 max-md:px-6 max-md:pb-6 max-md:pt-1 flex justify-center items-center overflow-y-auto">
           <div className="flex flex-col justify-center items-start">
-            <DialogTitle className="display-font text-foreground-dark text-xl md:text-2xl min-[2048px]:text-3xl  mb-4 min-[2048px]:mb-8 leading-tight">
+            <DialogTitle className="display-font text-foreground-dark text-xl md:text-2xl min-[2048px]:text-3xl  mb-4 min-[2048px]:mb-8 leading-tight z-[999]">
               {parts[0]}
               <span className="text-foreground-accent">{titleHighlight}</span>
               {parts[1]}
@@ -40,7 +40,7 @@ const ThankYouModal = ({
             <DialogClose asChild>
               <button
                 onClick={onClose}
-                className="--btn-secondary !pt-[8px] !pb-[6px] max-md:text-xs min-[2048px]:text-[21px]"
+                className="--btn-secondary !pt-[8px] !pb-[6px] max-md:text-xs min-[2048px]:text-[21px] "
               >
                 Close
               </button>
@@ -49,14 +49,14 @@ const ThankYouModal = ({
         </div>
 
         {/* Right Section (Image) */}
-        <div className="w-full md:w-1/2 h-[250px] md:h-full relative ">
+        <div className="w-full md:w-1/2 h-[250px] md:h-full relative">
           <Image
             src={getAssetUrl(image)}
             alt="Luxury Living"
             width={500}
             height={500}
-            className="w-full h-full object-cover object-center"
-            quality={100}
+            className={`w-full h-full object-cover object-center`}
+            quality={90}
             priority
           />
         </div>

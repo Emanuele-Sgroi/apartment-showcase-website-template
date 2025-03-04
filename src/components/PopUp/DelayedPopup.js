@@ -314,6 +314,7 @@ export default function DelayedPopup() {
             alt="Popup Image"
             fill
             className="object-cover object-center"
+            quality={85}
             priority
           />
         </div>

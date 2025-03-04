@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ThankYouModal, SpinnerRound } from "@/components";
 
@@ -15,8 +15,18 @@ const ContactSection = ({ title, highlight, globalsContent }) => {
   const [generalError, setGeneralError] = useState(""); // For desktop error message
   const [isModalOpen, setIsModalOpen] = useState(false); // This state controls the "Thank you" modal
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [preloadedImage, setPreloadedImage] = useState(null);
 
   const parts = title?.split(highlight);
+
+  // Preload the modal image when the component mounts
+  useEffect(() => {
+    if (globalsContent?.thankYouModalImage) {
+      const img = new Image();
+      img.src = globalsContent.thankYouModalImage;
+      img.onload = () => setPreloadedImage(img.src);
+    }
+  }, [globalsContent?.thankYouModalImage]);
 
   // Handle input change
   const handleChange = (e) => {
@@ -273,7 +283,7 @@ const ContactSection = ({ title, highlight, globalsContent }) => {
         title={globalsContent?.thankYouModalTitle}
         titleHighlight={globalsContent?.thankYouModalTitleHighlight}
         description={globalsContent?.thankYouModalDescription}
-        image={globalsContent?.thankYouModalImage}
+        image={preloadedImage || globalsContent?.thankYouModalImage}
       />
     </section>
   );

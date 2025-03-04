@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   NavbarInquire,
   InquireHeroSection,
@@ -24,6 +24,7 @@ const InquirePage = () => {
   const [isApiError, setIsApiError] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [preloadedImage, setPreloadedImage] = useState(null);
 
   if (isInquirePageError || isGlobalsError) {
     return <ErrorComponent />;
@@ -35,6 +36,15 @@ const InquirePage = () => {
     isGlobalsLoading ||
     !inquirePageContent ||
     !globalsContent;
+
+  // Preload the modal image when the component mounts
+  useEffect(() => {
+    if (globalsContent?.thankYouModalImage) {
+      const img = new Image();
+      img.src = globalsContent.thankYouModalImage;
+      img.onload = () => setPreloadedImage(img.src);
+    }
+  }, [globalsContent?.thankYouModalImage]);
 
   const handleFormSubmit = async (formData) => {
     try {
@@ -105,7 +115,7 @@ const InquirePage = () => {
             title={globalsContent?.thankYouModalTitle}
             titleHighlight={globalsContent?.thankYouModalTitleHighlight}
             description={globalsContent?.thankYouModalDescription}
-            image={globalsContent?.thankYouModalImage}
+            image={preloadedImage || globalsContent?.thankYouModalImage}
           />
         </>
       )}
