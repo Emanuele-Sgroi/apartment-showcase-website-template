@@ -58,7 +58,7 @@ const CarouselTextSection = ({ text, slidesRef, isTextOnTheLeft = true }) => {
             effect="fade"
             loop={true}
             autoplay={{
-              delay: 4000,
+              delay: 3000,
               disableOnInteraction: false,
             }}
           >
