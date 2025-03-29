@@ -4,15 +4,18 @@
 
 [View Demo](https://emanuele-sgroi.github.io/showcase-gorilla-nft/)
 
-![Gorilla NFT Screenshots](./app_screenshots.png)
+![Banner](./public/images/og-default.jpg)
+
+To see more of the front end please visit the [project website](https://emanuele-sgroi.github.io/showcase-gorilla-nft/) or [my portfolio](https://www.emanuelesgroi.com/portfolio/luxury-real-estate-showcase)
 
 ## Table of Contents
 - [Overview](#overview)
 - [Core Features](#core-features)
 - [How It Works](#how-it-works)
 - [Why This Project?](#why-this-project)
-- [Future Ideas](#future-ideas)
 - [Conclusion](#conclusion)
+- [License](#license)
+- [Contact](#contact)
 
 ---
 
@@ -23,24 +26,20 @@ This Next.js template lets real estate agents spin up a polished property site f
 
 ## Core Features
 
-1. **Multiple Hero Options**  
-   - Select a single image, a photo carousel, or a background video for the top of the homepage.  
-   - Seamlessly update these from the CMS without touching code.
-
-2. **Luxury Aesthetics**  
+1. **Luxury Aesthetics**  
    - **Tailwind CSS** and **Framer Motion** combine for a high-end look with smooth animations.  
    - Perfect for showcasing upscale condos or apartments.
 
-3. **Contentful Integration**  
+2. **Contentful Integration**  
    - Each site references a dedicated entry in Contentful.  
-   - Property descriptions, photos, and amenity details can be edited anytime—no developer required.
+   - Property descriptions, photos, amenity details and more, can be edited anytime. No developer required.
 
-4. **Reusable for Multiple Properties**  
+3. **Reusable for Multiple Properties**  
    - Spin up a new site by simply pointing to a different Contentful entry and domain.  
    - Saves time and budget for real estate agents managing multiple listings.
 
-5. **Inquiry & Lead Capture**  
-   - A dedicated “Inquire” page collects prospective buyer/renter info.  
+4. **Inquiry & Lead Capture**  
+   - A dedicated “Inquire” page collects prospective buyer/renter/seller info.  
    - All inquiries are routed to **Follow Up Boss**, automatically updating the agent’s CRM.
 
 ---
@@ -57,30 +56,27 @@ This Next.js template lets real estate agents spin up a polished property site f
   Submitted forms send data directly to the agent’s CRM, centralizing leads under one system.
 
 - **Cloning the Site**  
-  Need a new property site? Duplicate this repo, attach it to a new domain, and point the code to another CMS entry. Minimal developer involvement required.
+  Need a new property site? Duplicate this repo, attach it to a new domain, and point the code to another CMS entry. Minimal developer involvement required. You only have to change few things of the json files in the "Administration" folder, but it's done in a 
+  very intuitive way even for those who don't know coding
 
 ---
 
 ## Why This Project?
-It started as a single site for a luxury condo in New York. Then the client wanted another—and another. Instead of building each from scratch, I created a master Next.js template tied to Contentful and integrated with Follow Up Boss. Now, adding a new property page only involves setting up a domain and populating Contentful, drastically reducing costs and development overhead.
-
----
-
-## Future Ideas
-
-- **Localization**  
-  Add multi-language functionality for global outreach.
-
-- **Extended Sections**  
-  Potentially highlight nearby attractions, restaurants, or integrate 3D tours to enrich the visitor experience.
-
-- **Analytics**  
-  Track user flows, inquiry conversion rates, or advanced event metrics in a dedicated dashboard.
-
-- **Automated Deployment**  
-  Use Netlify or Vercel to auto-deploy updates whenever new content or domain data is saved.
+It started as a single site for a luxury condo in New York. Then the agent wanted another, and another. Instead of building each from scratch, I created a master Next.js template tied to Contentful and integrated with Follow Up Boss. Now, adding a new property page only involves setting up a domain and populating Contentful, drastically reducing costs and development overhead.
 
 ---
 
 ## Conclusion
-This approach seamlessly balances a luxury aesthetic with the simplicity needed for rapid duplication. By employing Next.js, Tailwind, and Contentful, real estate agents can deploy new, polished property sites in minutes—complete with inquiry handling and CRM integration. It’s a fast, scalable solution for showcasing any high-end apartment or condo.
+This approach seamlessly balances a luxury aesthetic with the simplicity needed for rapid duplication. By employing Next.js, Tailwind, and Contentful, real estate agents can deploy new, polished property sites in minutes, complete with inquiry handling and CRM integration. It’s a fast, scalable solution for showcasing any high-end apartment or condo.
+
+---
+
+## License
+The core template is offered for anyone to use, provided you credit me as the original developer. Please remove any references specific to client branding or domain configurations if you adapt this for your own projects.
+
+---
+
+## Contact
+You can contact me here:
+- **Email**: em.sgroi@gmail.com
+- **Website**: [emanuelesgroi.com](https://www.emanuelesgroi.com)
