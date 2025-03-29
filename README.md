@@ -13,6 +13,7 @@ To see more of the front end please visit the [project website](https://emanuele
 - [Core Features](#core-features)
 - [How It Works](#how-it-works)
 - [Why This Project?](#why-this-project)
+- [How to Use](#how-to-use)
 - [Conclusion](#conclusion)
 - [License](#license)
 - [Contact](#contact)
@@ -63,6 +64,49 @@ This Next.js template lets real estate agents spin up a polished property site f
 
 ## Why This Project?
 It started as a single site for a luxury condo in New York. Then the agent wanted another, and another. Instead of building each from scratch, I created a master Next.js template tied to Contentful and integrated with Follow Up Boss. Now, adding a new property page only involves setting up a domain and populating Contentful, drastically reducing costs and development overhead.
+
+---
+
+## How to Use
+
+1. **Setup Environment Variables**  
+   Create an `.env` or `.env.local` file containing:
+   
+   ```
+   NEXT_PUBLIC_CONTENTFUL_SPACE_ID=xxxxxxxxxxxxx
+   NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   NEXT_PUBLIC_CONTENTFUL_PREVIEW_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxx
+   NODE_ENV="development" # or production
+   FUB_API_KEY=xxxxxxxxxxxxxxxxxxxx
+   ```
+2. **Manual Edits in the Administration Folder**  
+- **`./administration/metadata.js`**  
+  Configure SEO-related data (page titles, descriptions, Open Graph images). This file ensures consistent branding and social-sharing images across the site.
+- **`./administration/siteInfo.js`**  
+  Update the domain name and the site’s display name. For example:
+  
+  ```js
+  export const siteInfo = {
+    domainName:
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:3000"
+        : "https://example.com",
+    nameWebsite: "1 Northside Piers",
+  };
+  ```
+
+3. **Install and Run**  
+- Install dependencies: `npm install`
+- Run in dev mode: `npm run dev`
+- (Or build and start for production: `npm run build` then `npm run start`)
+
+4. **Customize in Contentful**  
+- Adjust text, images, amenity details, hero type (carousel/video/single image).
+- Changes appear automatically after a redeploy or via ISR (if configured).
+
+5. **Connect Follow Up Boss**  
+- Ensure your `FUB_API_KEY` is correct. The site’s inquiry forms will post leads directly to your CRM.
+
 
 ---
 
