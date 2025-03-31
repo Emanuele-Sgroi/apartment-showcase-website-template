@@ -2,7 +2,7 @@
 
 > **A Next.js template designed for quick, elegant real-estate websites, powered by Contentful and Follow Up Boss.**
 
-[View Demo](https://emanuele-sgroi.github.io/showcase-gorilla-nft/)
+[View Demo](https://www.onenorthsidepierscondos.com/)
 
 ![Banner](./public/images/og-default.jpg)
 
